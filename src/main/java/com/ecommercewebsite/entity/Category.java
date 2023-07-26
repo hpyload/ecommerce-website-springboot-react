@@ -33,15 +33,12 @@ public class Category extends IdBasedEntity implements Serializable {
     @Transient
     private boolean hasChildren;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "parent_id")
     private Category parent;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Category> children = new HashSet<>();
-
-    @Column(name = "all_parent_ids", length = 256, nullable = true)
-    private String allParentIDs;
 
     @Transient
     private boolean customerCanReview;

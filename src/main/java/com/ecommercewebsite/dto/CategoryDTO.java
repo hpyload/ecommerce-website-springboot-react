@@ -23,4 +23,7 @@ public class CategoryDTO {
     private boolean hasChildren;
     private Category parent;
     private Set<Category> children = new HashSet<>();
+    private String allParentIDs;
+    private boolean customerCanReview;
+    private boolean reviewedByCustomer;
 }
